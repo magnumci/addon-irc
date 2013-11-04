@@ -10,7 +10,7 @@ module Magnum
     class Irc
       def initialize(options={})
         @host    = options[:host]
-        @port    = options[:port] || 6697
+        @port    = options[:port] || 6667
         @ssl     = options[:ssl] || false
         @nick    = options[:nick] || "magnum-ci"
         @channel = options[:channel]
