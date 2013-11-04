@@ -12,21 +12,25 @@ module Magnum
           @build = Hashr.new(build)
         end
 
-        def to_s
+        def to_a
           lines = [
             build.title,
-            "Commit: <#{build.commit_url}|#{build.message}>"
+            "Commit: #{build.message} (#{build.commit_url})"
           ]
 
           if build.compare_url
-            lines << "Diff: <#{build.compare_url}>"
+            lines << "Diff: #{build.compare_url}"
           end
 
           lines << "Author: #{build.author}"
           lines << "Duration: #{build.duration_string}"
-          lines << "<#{build.build_url}|View Build>"
+          lines << "View build: #{build.build_url}"
 
-          lines.join("\n")
+          lines
+        end
+
+        def to_s
+          to_a.join("\n")
         end
       end
     end

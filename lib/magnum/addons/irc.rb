@@ -19,14 +19,18 @@ module Magnum
 
       def run(build)
         message = Message.new(build)
-        deliver(message.to_s)
+        deliver(message)
       end
 
       private
 
       def deliver(message)
         @client.register(@nick)
-        @client.notify(@channel, message)
+
+        message.to_a.each do |line|
+          @client.notify(@channel, line)
+        end
+        
         @client.quit
       end
     end
