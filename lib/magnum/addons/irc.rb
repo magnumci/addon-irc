@@ -2,6 +2,7 @@ require "irc-notify"
 require "hashr"
 
 require "magnum/addons/irc/version"
+require "magnum/addons/irc/error"
 require "magnum/addons/irc/message"
 
 module Magnum
@@ -19,8 +20,6 @@ module Magnum
         if @channel[0] != "#"
           @channel.prepend("#")
         end
-
-        @client = IrcNotify::Client.build(@host, @port, { ssl: @ssl })
       end
 
       def run(build)
@@ -31,13 +30,17 @@ module Magnum
       private
 
       def deliver(message)
-        @client.register(@nick)
+        client.register(@nick)
 
         message.to_a.each do |line|
-          @client.notify(@channel, line)
+          client.notify(@channel, line)
         end
 
-        @client.quit
+        client.quit
+      end
+
+      def client
+        @client ||= IrcNotify::Client.build(@host, @port, { ssl: @ssl })
       end
 
       def validate_options
@@ -49,7 +52,7 @@ module Magnum
           raise ArgumentError, "Port is not a number"
         end
 
-        if @channe.nil?
+        if @channel.nil?
           raise ArgumentError, "Channel required"
         end
       end
