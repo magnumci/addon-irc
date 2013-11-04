@@ -8,13 +8,13 @@ module Magnum
   module Addons
     class Irc
       def initialize(options={})
-        @server  = options[:server]
+        @host    = options[:host]
         @port    = options[:port] || 6697
         @ssl     = options[:ssl] || false
         @nick    = options[:nick] || "magnum-ci"
         @channel = options[:channel]
 
-        @client = SlackNotify::Client.new(@server, @port, ssl: @ssl)
+        @client = IrcNotify::Client.build(@host, @port, { ssl: @ssl })
       end
 
       def run(build)
