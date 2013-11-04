@@ -14,6 +14,10 @@ module Magnum
         @nick    = options[:nick] || "magnum-ci"
         @channel = options[:channel]
 
+        if @channel[0] != "#"
+          @channel.prepend("#")
+        end
+
         @client = IrcNotify::Client.build(@host, @port, { ssl: @ssl })
       end
 
@@ -30,7 +34,7 @@ module Magnum
         message.to_a.each do |line|
           @client.notify(@channel, line)
         end
-        
+
         @client.quit
       end
     end
