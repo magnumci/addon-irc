@@ -14,6 +14,8 @@ module Magnum
         @nick    = options[:nick] || "magnum-ci"
         @channel = options[:channel]
 
+        validate_options
+
         if @channel[0] != "#"
           @channel.prepend("#")
         end
@@ -36,6 +38,20 @@ module Magnum
         end
 
         @client.quit
+      end
+
+      def validate_options
+        if @host.nil?
+          raise ArgumentError, "Host required"
+        end
+
+        unless @port.kind_of?(Fixnum)
+          raise ArgumentError, "Port is not a number"
+        end
+
+        if @channe.nil?
+          raise ArgumentError, "Channel required"
+        end
       end
     end
   end
