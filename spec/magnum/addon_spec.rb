@@ -51,7 +51,7 @@ describe Magnum::Addons::Irc do
       end
 
       it "sends notification" do
-        expect(client).to receive(:notify).exactly(6).times
+        expect(client).to receive(:notify).exactly(7).times
         addon.run(payload)
       end
 

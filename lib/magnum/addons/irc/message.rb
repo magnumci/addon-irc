@@ -22,6 +22,7 @@ module Magnum
             lines << "Diff: #{build.compare_url}"
           end
 
+          lines << "Branch: #{build.branch}"
           lines << "Author: #{build.author}"
           lines << "Duration: #{build.duration_string}"
           lines << "View build: #{build.build_url}"

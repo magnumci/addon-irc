@@ -1,0 +1,7 @@
+[PASS] slack-notify #3 (master - 6f102f22) by Dan Sosedoff
+Commit: Version bump: 0.1.1 (https://github.com/sosedoff/slack-notify/commit/6f102f22caac46945e16ada4f50df29a70ab2799)
+Diff: https://github.com/sosedoff/slack-notify/compare/42f7b7cdfc4b...6f102f22caac
+Branch: master
+Author: Dan Sosedoff
+Duration: 11s
+View build: https://magnum-ci.com/projects/201/builds/8683
