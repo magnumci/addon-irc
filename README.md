@@ -24,10 +24,9 @@ addon.run(build_payload)
 
 Available options:
 
-- `server`   - IRC server hostname or IP
-- `port`     - IRC server port
+- `server`   - Server hostname or IP
+- `port`     - Server port (defaults to 6667)
 - `channel`  - Channel name
-- `nick`     - Sender nickname
 
 ## Testing
 
@@ -36,3 +35,9 @@ Execute test suite:
 ```
 bundle exec rake test
 ```
+
+## License
+
+Copyright (c) 2013 Dan Sosedoff, Magnum CI
+
+MIT License
