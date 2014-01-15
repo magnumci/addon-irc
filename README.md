@@ -2,6 +2,8 @@
 
 Send [Magnum CI](http://magnum-ci.com) build notifications to an IRC channel
 
+![Build Status](https://magnum-ci.com/status/44b2c1e0d27ed5b5a1d874be9fbcb9a4.png)
+
 ## Usage
 
 Example:
